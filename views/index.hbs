@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In - Home Page</title>
+    <link rel="stylesheet" href= "style/signup.css">
+    <link rel = "icon" href = "images/homepage.jpg" type = "image/x-icon"> 
+</head>
+<body>
+<div id="login-box">
+  <div class="left">
+    <h1 style="font-weight:bold; font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif">Sign in</h1>
+    <form action="" method="POST">
+    <input type="text" name="username" placeholder="Username" required />
+    <input type="password" name="password" placeholder="Password" required />
+    </form>
+    <input style="margin-left: 10px;" type="submit" name="signup_submit" value="Login" />
+    <div style="position:fixed; background-color: rgb(211, 209, 209); height:1px; width:135px; margin-top: 40px; margin-left:40px" id="span">
+      
+    </div>
+  </div>
+ 
+  <h1 style="position:absolute; margin-top:335px; font-size:12px; margin-left:110px; color:rgb(133, 133, 133)">Cooporate with</h1>
+    <img id="mongo" style="width: 160px; height: 100px; position:fixed; margin-top:340px" src="images/mongodb.png">
+    <img id="mongo" style="width: 160px; height: 50px; position:fixed; margin-top:360px; margin-left: 135px" src="images/heroku.jpg">
+    <img id="mongo" style="width: 115px; height: 55px; position:fixed; margin-top:430px; margin-left: 20px;" src="images/github.jpeg">
+    <img id="mongo" style="width: 160px; height: 70px; position:fixed; margin-top:420px; margin-left: 135px" src="images/vscode.png">
+</div>
+
+<div id="form_pop" style="background-color: violet;"></div>
+  <form style="background-color: violet;" action="" method="POST">
+  <button type="button" id="cancel" onclick="closeform();">X</button>
+    <h1 style="color: white; margin-left: 20px; font-family: Arial, Helvetica, sans-serif;">Forgot password</h1>
+
+    <label style="color: white; margin-left: 20px; font-family: Arial, Helvetica, sans-serif;" for="email"><b>Username: </b></label><BR><BR>
+    <input style="width: 200px; height: 30px; margin-left: 20px; border-radius: 4px; padding: 8px 12px;" type="text" placeholder="Enter Username" name="username" required><BR><BR>
+
+    <label style="color: white; margin-left: 20px; font-family: Arial, Helvetica, sans-serif;" for="psw"><b>Phone number: </b></label><BR><BR>
+    <input type="password" style="width: 200px; height: 30px; margin-left: 20px; border-radius: 4px; padding: 8px 12px;" placeholder="Enter Password" name="password" required><BR><BR>
+
+    <button style="font-size: 17px; padding: 8px; box-shadow: none; border-radius: 70px; width: 150px; margin-left: 50px" type="submit" id="login">Login</button><BR><BR>
+    
+  </form>
+</div>
+
+</body>
+</html>
