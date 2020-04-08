@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign In - Home Page</title>
-    <link rel="stylesheet" href= "style/signup.css">
+    <link rel="stylesheet" href= "/style/signup.css">
     <link rel = "icon" href = "images/homepage.jpg" type = "image/x-icon"> 
 </head>
 <body>
@@ -16,9 +16,10 @@
     <input type="password" name="password" placeholder="Password" required />
     </form>
     <input style="margin-left: 10px;" type="submit" name="signup_submit" value="Login" />
-    <div style="position:fixed; background-color: rgb(211, 209, 209); height:1px; width:135px; margin-top: 40px; margin-left:40px" id="span">
-      
-    </div>
+    
+    <p id="forgot">Forgot your password? <a href ="">Click here.</a></p>
+
+    <div id="line"></div>
   </div>
  
   <h1 style="position:absolute; margin-top:335px; font-size:12px; margin-left:110px; color:rgb(133, 133, 133)">Cooporate with</h1>
@@ -28,9 +29,10 @@
     <img id="mongo" style="width: 160px; height: 70px; position:fixed; margin-top:420px; margin-left: 135px" src="images/vscode.png">
 </div>
 
-<div id="form_pop" style="background-color: violet;"></div>
-  <form style="background-color: violet;" action="" method="POST">
-  <button type="button" id="cancel" onclick="closeform();">X</button>
+<div id="form_pop">
+  <form action="" method="POST">
+    <h1 id="X" onclick="closeform()">X</h1>
+  {{!-- <button type="button" id="cancel" onclick="closeform();">X</button>
     <h1 style="color: white; margin-left: 20px; font-family: Arial, Helvetica, sans-serif;">Forgot password</h1>
 
     <label style="color: white; margin-left: 20px; font-family: Arial, Helvetica, sans-serif;" for="email"><b>Username: </b></label><BR><BR>
@@ -40,7 +42,7 @@
     <input type="password" style="width: 200px; height: 30px; margin-left: 20px; border-radius: 4px; padding: 8px 12px;" placeholder="Enter Password" name="password" required><BR><BR>
 
     <button style="font-size: 17px; padding: 8px; box-shadow: none; border-radius: 70px; width: 150px; margin-left: 50px" type="submit" id="login">Login</button><BR><BR>
-    
+     --}}
   </form>
 </div>
 

@@ -29,17 +29,19 @@ body {
   border-radius: 6px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
 }
+#forgot
+{
+  font-size: 11px;
+  text-align: center;
+}
 
 #line
 {
   position:fixed; 
   background-color: rgb(211, 209, 209); 
-  height:1px; 
-  width:135px; 
+  height:1px; width:135px; 
   margin-top: 40px; 
   margin-left:40px;
-  background-color: yellow;
-  height: 10px;
 }
 
 .left {
@@ -50,6 +52,34 @@ body {
   padding: 40px;
   width: 300px;
   height: 400px;
+}
+
+#form_pop
+{
+  background-color: violet;
+  position: fixed;
+  margin-top: -500px;
+  margin-left: 30%;
+  //display: none;
+  width: 600px;
+  height: 400px;
+  background: #FFF;
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+#X
+{
+  margin-left: 95%;
+  margin-top: 7px;
+  font-size: 24px;
+  color: rgb(163, 163, 163);
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+#X:hover
+{
+  cursor: pointer;
+
 }
 
 h1 {
