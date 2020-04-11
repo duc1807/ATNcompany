@@ -14,8 +14,12 @@ app.set('views','./views');
 app.set('view engine','hbs');
 
 var indexController = require("./index.js");
+var homepageController = require("./homepage.js");
+var employeeController = require("./employee.js");
 
+app.use('/homepage', homepageController);
 app.use('/', indexController);
+app.use('/employee', employeeController);
 
 
 var server = app.listen(3000, function() {});

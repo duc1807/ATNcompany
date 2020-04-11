@@ -6,33 +6,40 @@
     <title>Sign In - Home Page</title>
     <link rel="stylesheet" href= "/style/signup.css">
     <link rel = "icon" href = "images/homepage.jpg" type = "image/x-icon"> 
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 </head>
 <body>
+
 <div id="login-box">
   <div class="left">
-    <h1 style="font-weight:bold; font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif">Sign in</h1>
-    <form action="" method="POST">
+    <h1 id="signin">Sign in</h1>
+    <form action="/homepage" method="POST">
     <input type="text" name="username" placeholder="Username" required />
     <input type="password" name="password" placeholder="Password" required />
+    <p id="warning">Password is incorrect!</p>
+    <button class="login" type="submit" name="login">Login</button>
     </form>
-    <input style="margin-left: 10px;" type="submit" name="signup_submit" value="Login" />
     
-    <p id="forgot">Forgot your password? <a href ="">Click here.</a></p>
+    
+    
+    <p id="forgot">Forgot your password? <u id = "click" onclick="openform()">Click here.</u></p>
 
     <div id="line"></div>
   </div>
- 
-  <h1 style="position:absolute; margin-top:335px; font-size:12px; margin-left:110px; color:rgb(133, 133, 133)">Cooporate with</h1>
+ <div style="cursor: default; pointer-events: none;">
+  <h1 style="position:absolute; margin-top:340px; font-size:12px; margin-left:110px; color:rgb(133, 133, 133)">Cooporate with</h1>
     <img id="mongo" style="width: 160px; height: 100px; position:fixed; margin-top:340px" src="images/mongodb.png">
     <img id="mongo" style="width: 160px; height: 50px; position:fixed; margin-top:360px; margin-left: 135px" src="images/heroku.jpg">
     <img id="mongo" style="width: 115px; height: 55px; position:fixed; margin-top:430px; margin-left: 20px;" src="images/github.jpeg">
     <img id="mongo" style="width: 160px; height: 70px; position:fixed; margin-top:420px; margin-left: 135px" src="images/vscode.png">
 </div>
+</div>
 
-<div id="form_pop">
+{{!<div class="w3-container" id="popup-background" style="background-color: white; width:300px; height:300px;">
+<div class="w3-center w3-animate-top" class="form_pop" id ="form">
   <form action="" method="POST">
     <h1 id="X" onclick="closeform()">X</h1>
-  {{!-- <button type="button" id="cancel" onclick="closeform();">X</button>
+
     <h1 style="color: white; margin-left: 20px; font-family: Arial, Helvetica, sans-serif;">Forgot password</h1>
 
     <label style="color: white; margin-left: 20px; font-family: Arial, Helvetica, sans-serif;" for="email"><b>Username: </b></label><BR><BR>
@@ -42,9 +49,47 @@
     <input type="password" style="width: 200px; height: 30px; margin-left: 20px; border-radius: 4px; padding: 8px 12px;" placeholder="Enter Password" name="password" required><BR><BR>
 
     <button style="font-size: 17px; padding: 8px; box-shadow: none; border-radius: 70px; width: 150px; margin-left: 50px" type="submit" id="login">Login</button><BR><BR>
-     --}}
+     
   </form>
 </div>
+</div>
+--}}
+<div id="popup-background" style="position: relative; z-index:2; width:100%; height:910px; margin-left:0px; margin-top:-800px;">
+<div style="margin-top: 280px; margin-left:35%;" class="w3-container w3-center w3-animate-top" id= "popup-container">
+  <form id="form" action="" method="POST">
+    <h1 id="X" onclick="closeform()">X</h1>
+
+    <h1 class="forgot-form" style="margin-top: 35px;">Forgot password?</h1>
+
+    <label class="label"for="email"><b>Enter your username: </b></label><BR><BR>
+    <input class="forgot-input" style="margin-top: -10px;" type="text" placeholder="Username" name="username" required><BR><BR>
+
+    <label class="label" for="psw"><b>Your phone number: </b></label><BR><BR>
+    <input style="margin-top: -10px;" class="forgot-input" type="password" placeholder="Password" name="password" required><BR><BR>
+
+    <button id="forgot-button" style="font-size: 17px; padding: 8px; box-shadow: none; border-radius: 70px; width: 150px; margin-left: 50px" type="submit" id="login">Confirm</button><BR><BR>
+     
+  </form>
+</div>
+</div>
+
+<script>
+
+function openform() {
+  document.getElementById("popup-background").style.display = "block";
+}
+
+function closeform() {
+  document.getElementById("popup-background").style.display = "none";
+}
+
+/* 
+if()
+document.getElementById("warn").style.display = "block";
+else
+document.getElementById("warn").style.display = "none";
+*/
+</script>
 
 </body>
 </html>

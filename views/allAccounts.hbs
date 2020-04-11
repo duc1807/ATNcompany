@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ATN Company Management</title>
+    <link rel="stylesheet" href= "/style/allAccount.css">
+</head>
+<body>
+    <div id="nav-bar">  
+        <a href="/homepage"><img id ="home" src="/images/homepage2.png"></a>  
+        <ul>
+        <li id="trans" style="margin-left: 100px;"><a href="">{{Username}}Manage Accounts</a></li>
+        <li><a href="news.asp">Manage Products</a></li>
+        <li id="logout" style="background-color: rgb(105, 50, 50);" ><a href="/">Logout</a></li>
+        </ul>
+    </div>
+    
+<div class = "container">
+    <div id="info">
+        <h1>Account Management</h1>
+        <p>Total account: </p>
+    </div>
+
+{{# each sanPham}}
+    <div id="content">
+        <h1>Hello</h1>
+    </div>
+{{/each}}
+
+    <div style="background-color: white;" id="content">
+
+    </div>  
+
+</div>
+
+<div id="option">
+    <div id="line"></div>
+    <img title="Add new account" id="add" src="/images/add.png">
+    <img title="Messages" id="mess" src="/images/mess.png">
+</div>
+
+<script>
+document.getElementById('ok').onclick = function () {
+    document.getElementById('option').focus();
+};
+
+</script>
+
+</body>
+</html>
