@@ -131,7 +131,7 @@ router.get('/photo/:id', async(req, res) => {
   
     let client= await MongoClient.connect(url);
     let dbo = client.db("ATNCompany");
-    dbo.collection('Product').findOne({ _id: ObjectId(filename) }, (err, result) => {
+    dbo.collection('Product').findOne({'_id': ObjectId(filename) }, (err, result) => {
       if (err) return console.log(err)
       res.contentType('image/jpeg');
       //res.send(result.image.buffer);
@@ -207,7 +207,8 @@ router.post('/product/edit', upload.single('picture'), async(req,res)=>
 
     var img = fs.readFileSync(req.file.path);
     var encode_image = img.toString('base64');
-
+    var filename = req.params.id;
+    
     var finalImg = {
       contentType: req.file.mimetype,
       image: new Buffer(encode_image, 'base64')
@@ -221,13 +222,14 @@ router.post('/product/edit', upload.single('picture'), async(req,res)=>
     let dbo = client.db("ATNCompany");
     await dbo.collection("Product").updateOne(condition,newProduct);
 
-    var filename = req.params.id;
   
+    /* 
     dbo.collection('Product').findOne({ '_id': ObjectId(filename) }, (err, result) => {
       if (err) return console.log(err)
       res.contentType('image/jpeg');
       res.send(result.image.buffer);
     })
+    */
     let results = await dbo.collection("Product").find({}).toArray();
     let count = await dbo.collection("Product").count();
     res.render('allProducts',{products:results, count:count});

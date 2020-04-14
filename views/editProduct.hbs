@@ -25,7 +25,7 @@
 
     <form action="edit" method="POST" enctype="multipart/form-data" id="edit-content">
 
-        <input type="hidden" name="id" value="{{products_id}}">
+        <input type="hidden" name="id" value="{{products._id}}">
 
         <div style="height: 200px;" id="content-left">
         <label class="label"><b>Product Name </b></label><BR><BR>
@@ -45,7 +45,7 @@
             <input style="margin-top: -8px;" type="file" name="picture" accept="image/*" required><BR><BR><BR>
 
             <label style="position: absolute; margin-top: -15px" class="label"><b>Description </b></label><BR>
-            <textarea style="resize: none; width:220px; height:80px; margin-top:10px; margin-left:15px" type="text" name="desription" required>{{products.Description}}</textarea><BR>
+            <textarea style="resize: none; width:220px; height:80px; margin-top:10px; margin-left:15px" name="description" required>{{products.Description}}</textarea><BR>
 
             <a href="/homepage/product"><div id="ignore"><img class="ignoreicon2" src="/images/uncheck.png"></div></a>
             <button type="submit" id="check"><img class="checkicon2" src="/images/check.png"></button>
