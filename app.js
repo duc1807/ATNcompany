@@ -19,7 +19,7 @@ var employeeController = require("./employee.js");
 
 app.use('/homepage', homepageController);
 app.use('/', indexController);
-app.use('/employee', employeeController);
+app.use('/employeepage', employeeController);
 
 
 var server = app.listen(3000, function() {});

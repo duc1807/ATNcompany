@@ -1,6 +1,7 @@
 body
 {
     background-image: url("backgroundsignin.jpg");
+    background-attachment: fixed;
 }
 .form-container {
     max-width: 300px;
@@ -48,12 +49,7 @@ body
 
   #logout
   {
-      margin-left: 850px;
-  }
-
-  #logout:hover
-  {
-
+      margin-left: 750px;
   }
   
   li {
@@ -91,35 +87,182 @@ li a:hover, #home:hover {
     transition: 0.4s;
   }
 
+  #head
+  {
+  color: white;
+  margin-top: 20px;
+  text-align: center;
+  font-family: 'Hoefler Text', Georgia, 'Times New Roman', serif;
+  font-weight: normal;
+  font-size: 45px;
+  letter-spacing: 7px;
+  line-height:50px;
+  text-align: center;
+  text-transform: uppercase;
+  }
+
+  #info-line
+  {
+    margin-left: 182px;
+    height: 1px;
+    width: 60%;
+    background-color: rgb(109, 109, 109);
+  }
+
   /* Container */
 .container{
   position: absolute;
   top: 140px;
   left: 265px;
   width: 65%;
+  z-index: -2;
   height: fit-content;
-  background-color: rgb(0, 0, 0, 0.5);
+  background-color: rgb(0, 0, 0, 0.7);
   transition: 0.4s;
   border-radius: 20px;
   transition: 0.4s;
   }
 
+#role
+{
+  margin-top: -24px;
+  margin-left: -153px;
+  position: absolute;
+  width: 180px;
+  z-index: -1;
+  height:30px;
+  background-color: white;
+  border-radius: 10px;
+  border: 4px solid rgb(175, 175, 175);
+}
+
+#content-left
+{
+  position: absolute;
+  width: 320px;
+  height: 200px;
+  float: left;
+  margin-left: 40px;
+  margin-top: 20px;
+}
+
+#content-line
+{
+  margin-left: 344px;
+  position: absolute;
+  height: 180px;
+  width: 2px;
+  margin-top: 20px;
+  background-color: rgb(199, 198, 198);
+}
+
+#content-right
+{
+  position: absolute;
+  margin-top: 20px;
+  margin-left: 350px;
+  width: 320px;
+  height: 200px;
+}
+
+#endline
+{
+  border-radius: 10px;
+  margin-left: 42px;
+  margin-top: 180px;
+  width: 87%;
+  height: 1px;
+  background-color: rgb(212, 212, 212);
+}
+
+#edit
+{
+  position: absolute;
+  width: 20px;
+  transition: 0.2s;
+  margin-left: 550px;
+  margin-top: 10px;
+  float: left;
+}
+
+#delete
+{
+  margin-top: 5px;
+  margin-left: 600px;
+  position: absolute;
+  width: 27px;
+  transition: 0.2s;
+}
+
+#edit:hover, #delete:hover
+{
+  cursor: pointer;
+  transform: scale(1.15);
+  transition: 0.2s;
+}
+
+/*delete popup*/
+.pop-delete-background
+{
+  display: none;
+  position: fixed;
+  z-index: 12;
+  top: 0;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height:100%;
+  margin-left: 0px;
+  background-color: rgb(0,0,0); 
+  background-color: rgba(0,0,0,0.4);  
+  backdrop-filter: blur(3px);
+}
+
+.pop-delete
+{
+  z-index: 20;
+  position: fixed;
+  width:300px;
+  height: 180px;
+  margin-top: 260px;
+  margin-left: 590px;
+  background-color: white;
+  border-radius: 4px;
+  border: 3px solid green;
+}
+
+.label
+{
+  font-family: Arial, Helvetica, sans-serif;
+}
+b{
+  font-size: 17px;
+}
+
+#role-info
+{
+  font-size: 15.5px;
+  margin-left: 3px;
+  margin-top: 6px;
+}
+
 #content
 {
+  z-index: 3;
   margin-top: 30px;
   width: 75%;
   height: 220px;
-  background-color: green;
+  background-color: rgb(255, 255, 255);
   border-radius: 10px;
-  margin-left: 100px;
+  margin-left: 112px;
   margin-bottom: 30px;
+  border: 4px solid rgb(175, 175, 175);
 }
 
 #info
 {
   width: 100%;
   height: 150px;
-  background-color: blue;
 }
 
 
@@ -139,11 +282,11 @@ li a:hover, #home:hover {
 
   #line
   {
-    position: fixed;
+    position: absolute;
     right: 0;
     margin-top: 73px;
     height: 2px;
-    width: 85px;
+    width: 109px;
     background-color: rgb(189, 189, 189);
   }
 
@@ -169,5 +312,176 @@ li a:hover, #home:hover {
     margin-left: 23px;
     transition: 0.3s;
   }
+  
+  /* pop up */
+
+#popup-background
+{
+  display: none;
+  position: fixed;
+  margin-left: -8px;
+  width: 100%;
+  height:100%;
+  background-color: rgb(0,0,0); 
+  background-color: rgba(0,0,0,0.4);  
+  backdrop-filter: blur(3px);
+  transition: 1s;
+}
+
+#popup-container
+{
+  margin-left: 420px;
+  margin-top: 190px;
+  position: absolute;
+  width: 600px;
+  height: 400px;
+  background: #FFF;
+  border-radius: 6px;
+}
+
+#X
+{
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+#X:hover
+{
+  color: rgb(126, 126, 126);
+  cursor: pointer;
+  transition: 0.4s;
+}
+
+.forgot-form
+{
+  color: rgb(54, 152, 233); 
+  font-size: 30px;
+  margin-left: 50px;
+  font-weight:bold; 
+  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+#pop-left
+{
+  width: 40%;
+  height: 260px;
+  float: left;
+  margin-left: 50px;
+}
+
+#horizon-line
+{
+  margin-left: 299px;
+  position: absolute;
+  width: 2px;
+  height: 280px;
+  background-color: rgb(216, 214, 214);
+}
+
+#pop-right
+{
+  width: 40%;
+  height: 260px;
+  margin-left: 310px;
+
+}
+
+input[type="radio"]:hover
+{
+  cursor: pointer;
+}
+
+input[type="radio"]
+{
+  margin-top: 8px;
+}
+
+.forgot-input:focus
+{
+  border-bottom: 2px solid #8779ff;
+  transition: 0.2s ease;
+}
+
+.forgot-input
+{
+  margin-top: -20px;
+  margin-left: 10px;
+  display: block;
+  box-sizing: border-box;
+  padding: 4px;
+  width: 220px;
+  height: 36px;
+  border: none;
+  border-bottom: 1px solid rgb(96, 189, 243);
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+  transition: 0.2s ease;
+}
+
+.forgot-input:focus
+{
+  outline: none;
+}
+
+.label
+{
+  margin-top: 20;
+  color: black;
+  font-size: 16px;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+#ignore
+{
+  position: absolute;
+  margin-top: 20px;
+  width: 80px;
+  height: 40px;
+  background-color: rgb(223, 11, 11);
+  float: left;
+  margin-left: 30px;
+  opacity: 0.7;
+  transition: 0.4s;
+  border: none;
+}
+
+#check
+{
+  position: absolute;
+  margin-top: 20px;
+  margin-left: 150px;
+  width: 80px;
+  height: 40px;
+  background-color: rgb(30, 151, 30);
+  opacity: 0.7;
+  transition: 0.4s;
+  border: none;
+}
+
+.checkicon
+{
+  position: static;
+  margin-left: 6px;
+  margin-top: 2px;
+  width: 30px;
+  height: 30px;
+}
+
+.ignoreicon
+{
+  position: static;
+  margin-left: 4px;
+  margin-top: 5px;
+  width: 25px;
+  height: 25px;
+}
+
+.ignoreicon:hover,.checkicon:hover, #ignore:hover, #check:hover
+{
+  opacity: 1;
+  cursor: pointer;
+  transition: 0.4s;
+}
+
+
 
 

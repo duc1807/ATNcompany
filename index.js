@@ -11,18 +11,24 @@ router.get('/',(req,res)=>{
 router.post('/homepage', async(req,res)=>{
     var username = req.body.username;
     var password = req.body.password;
-
     let client= await MongoClient.connect(url);
     let dbo = client.db("ATNCompany");
-    let results = await dbo.collection("Account").find({Username:username, Password:password}).toArray();
+    let results = await dbo.collection("Account").find({"Username":username, "Password":password}).toArray();
+    let results2 = await dbo.collection("Account").find({"Permission": "Administrator","Username":username, "Password":password}).toArray();
         if(results == 0)
         {
             res.render("index");          
         }
         else
         {
-            if(username == "admin")
-            res.render("homepage");
+            if(results2 != 0)
+            {
+                res.render("homepage");
+            }
+            else
+            {
+                res.render("employeepage");
+            }
         }
 
 })
