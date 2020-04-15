@@ -12,7 +12,7 @@
         <ul>
         <li style="margin-left: 100px;"><a href="/homepage/employee">Accounts Management</a></li>
         <li id="trans"><a href="/homepage/product">Products Management</a></li>
-        <li id="logout" style="background-color: rgb(105, 50, 50);" ><a href="/">Logout</a></li>
+        <li id="logout" style="background-color: rgb(105, 50, 50);" ><a href="/homepage/logout">Logout</a></li>
         </ul>
     </div>
     
@@ -37,21 +37,23 @@
 
         <div id="content-right">
             <p style="margin-left: 10px;" class="label"><b>Image:</b></p>
-            <img src='/homepage/photo/{{_id}}' alt="" width="180px" height="150px" style="margin-left: 75px;margin-top:-40px">
+            <img src='../homepage/photo/{{_id}}' alt="" width="180px" height="150px" style="margin-left: 75px;margin-top:-40px">
         </div>
 
         <div id="endline"></div>
 
         <a href="/homepage/product/edit?id={{_id}}"><img title="Edit" id="edit" src="/images/edit.png"></a>
-        <img title="Delete" onclick="confirmdel()" id="delete" src="/images/delete.png">
-{{!
-        <div class="pop-delete" id="">
-            <h1 style="font-size: 20px; margin-left:30px" class="forgot-form">Do you want to delete this account?</h1>
-            <p>Account: </p>
-            <button style="margin-top: 30px; margin-left:50px" onclick="closedel();" id="ignore"><img class="ignoreicon" src="/images/uncheck.png"></button>
-            <a href="/homepage/employee/delete?id="><button style="margin-top: 30px; margin-left:160px" id="check"><img class="checkicon" src="/images/check.png"></button></a>
+        <img title="Delete" onclick="confirmdel('{{_id}}')" id="delete" src="/images/delete.png">
+
+        <div class="pop-delete-background" id='{{_id}}'>
+            <div class="pop-delete" id='{{_id}}'>
+            <h1 style="font-size: 20px; margin-left:30px" class="forgot-form">Do you want to delete this product?</h1>
+            <p style="margin-left: 30px;">Product: {{Name}}</p>
+            <button style="margin-top: 10px; margin-left:50px" onclick="closedel('{{_id}}');" id="ignore"><img class="ignoreicon" src="/images/uncheck.png"></button>
+            <a href="/homepage/product/delete?id={{_id}}"><button style="margin-top: 10px; margin-left:160px" id="check"><img class="checkicon" src="/images/check.png"></button></a>
+            </div>
         </div>
---}}
+
     </div>
 {{/each}}
 
@@ -114,19 +116,16 @@ function reset()
 }
 </script>
 
-
-{{# each accounts}}
 <script>
-function confirmdel()
+function confirmdel(id)
 {
-    document.getElementById(</script> {{_id}} <script>).style.display= "block";
+    document.getElementById(id).style.display= "block";
 }
-function closedel()
+function closedel(id)
 {
-    document.getElementById(</script> {{_id}} <script>).style.display= "none";
+    document.getElementById(id).style.display= "none";
 }
 </script>
-{{/each}}
 
 
 </script>

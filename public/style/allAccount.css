@@ -312,6 +312,78 @@ b{
     margin-left: 23px;
     transition: 0.3s;
   }
+
+  /* pop up mess */
+
+  #popup-mess-background
+  {
+    display: none;
+    position: fixed;
+    margin-left: -8px;
+    width: 100%;
+    height:100%;
+    background-color: rgb(0,0,0); 
+    background-color: rgba(0,0,0,0.4);  
+    backdrop-filter: blur(3px);
+    transition: 1s;
+  }
+  
+  #popup-mess-container
+  {
+    margin-left: 420px;
+    margin-top: 190px;
+    position: absolute;
+    width: 600px;
+    height: 400px;
+    background: rgb(104, 104, 104);
+    border-radius: 6px;
+  }
+
+  #popup-mess-content
+  {
+    border: 2px solid rgb(190, 190, 190);
+    margin-left: 75px;
+    background-color: rgb(233, 233, 233);
+    width: 450px;
+    height: 250px;
+    overflow: scroll;
+  }
+
+  #Xmess
+{
+  font-size: 29px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  margin-left: 91%;
+  color: rgb(200, 200, 200);
+}
+#Xmess:hover
+{
+  color: rgb(126, 126, 126);
+  cursor: pointer;
+  transition: 0.4s;
+}
+
+#mess-form
+{
+  color: rgb(54, 152, 233); 
+  font-size: 30px;
+  margin-top: -20px;
+  margin-left: 50px;
+  font-weight:bold; 
+  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+#mess-info
+{
+  background-color: rgb(255, 255, 255);
+  width: 433px;
+  height: 120px;
+  margin-top: 20px;
+  border-radius: 8px;
+  border-top: 5px solid red;
+}
+
+
   
   /* pop up */
 

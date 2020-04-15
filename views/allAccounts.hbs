@@ -12,13 +12,13 @@
         <ul>
         <li id="trans" style="margin-left: 100px;"><a href="">Accounts Management</a></li>
         <li><a href="/homepage/product">Products Management</a></li>
-        <li id="logout" style="background-color: rgb(105, 50, 50);" ><a href="/">Logout</a></li>
+        <li id="logout" style="background-color: rgb(105, 50, 50);" ><a href="/homepage/logout">Logout</a></li>
         </ul>
     </div>
     
 <div class = "container">
     <div id="info">
-        <h1 id="head">Account Management</h1>
+        <h1 id="head">Accounts Management</h1>
             <div id="info-line"></div>
         <p style="font-size: 18px;color: white; text-align:center">Total accounts: {{count}}</p>
     </div>
@@ -64,8 +64,29 @@
 <div id="option">
     <div id="line"></div>
     <img title="Add new account" id ="add" onclick="add()" src="/images/add.png">
-    <img title="Messages" id="mess" src="/images/mess.png">
+    <img title="Messages" onclick="openmess()" id="mess" src="/images/mess.png">
 </div>
+
+{{! Popup messages}}
+
+<div id="popup-mess-background">
+    <div id= "popup-mess-container">
+        <h1 id="Xmess" onclick="closemess()">X</h1>
+        <h1 id ="mess-form">Forgot accounts request</h1>
+        <div id="popup-mess-content">
+            {{# each messages}}
+            <div id="mess-info">
+                <p style="margin-left: 30px; margin-top:10px;font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;"><b>Account:</b> {{Username}}</p>
+                <p style="margin-left: 30px;font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;"><b>Phone number:</b> {{Phone}}</p>
+                <p style="margin-left: 30px;font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;"><b>Date requested:</b> {{Time}}</p>
+            </div>
+            {{/each}}
+        </div>
+
+    </div>
+</div>
+
+
 
 
 <div id="popup-background">
@@ -109,6 +130,20 @@
 
 
 <script>
+
+// Popup messages
+
+function openmess() {
+    document.getElementById('popup-mess-background').style.display = "block";
+};
+
+function closemess() {
+    document.getElementById('popup-mess-background').style.display = "none";
+};
+
+
+//popup add
+
 function add() {
     document.getElementById('popup-background').style.display = "block";
 };

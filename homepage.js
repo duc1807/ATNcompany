@@ -15,16 +15,33 @@ var MongoClient = require('mongodb').MongoClient;
 ObjectId = require('mongodb').ObjectId;
 
 router.get('/',(req,res)=>{
-    res.render('homepage');
+    if(!req.session.username)
+    {
+      return res.status(401).send();
+    }
+      res.render('homepage');
 })
+
+router.get('/logout', function (req, res) {
+  req.session.username = null;
+  res.redirect('/');
+ });
 
 router.get('/employee', async(req,res)=>
 {
+  if(!req.session.username)
+  {
+    return res.status(401).send();
+  }
+  else 
+  {
     let client= await MongoClient.connect(url);
     let dbo = client.db("ATNCompany");
     let results = await dbo.collection("Account").find({}).toArray();
     let count = await dbo.collection("Account").countDocuments();
-    res.render('allAccounts',{accounts:results, count:count});
+    let messages = await dbo.collection("Messages").find({}).toArray();
+    res.render('allAccounts',{accounts:results, count:count, messages:messages});
+  }
 })
 
 router.post('/employee', async(req,res)=>
@@ -53,6 +70,12 @@ router.post('/employee', async(req,res)=>
 //edit
 router.get('/employee/edit', async(req,res)=>
 {
+  if(!req.session.username)
+  {
+    return res.status(401).send();
+  }
+  else 
+  {
     let id = req.query.id;
     var ObjectID = require('mongodb').ObjectID;
 
@@ -60,7 +83,7 @@ router.get('/employee/edit', async(req,res)=>
     let dbo = client.db("ATNCompany");
     let result = await dbo.collection("Account").findOne({"_id" : ObjectID(id)});
     res.render('editAccount',{accounts:result});
-})
+}})
 
 router.post('/employee/edit', async(req,res)=>
 {
@@ -87,6 +110,12 @@ router.post('/employee/edit', async(req,res)=>
 ///. delete account
 router.get('/employee/delete', async(req,res)=>
 {
+  if(!req.session.username)
+  {
+    return res.status(401).send();
+  }
+  else 
+  {
     let id = req.query.id;
     var ObjectID = require('mongodb').ObjectID;
     let condition = {_id : ObjectID(id)};
@@ -97,7 +126,7 @@ router.get('/employee/delete', async(req,res)=>
 
     let results = await dbo.collection("Account").find({}).toArray();
     res.render('allAccounts',{accounts:results});
-})
+}})
 
 ////////Product
 
@@ -131,9 +160,9 @@ router.get('/photo/:id', async(req, res) => {
   
     let client= await MongoClient.connect(url);
     let dbo = client.db("ATNCompany");
-    dbo.collection('Product').findOne({'_id': ObjectId(filename) }, (err, result) => {
+    dbo.collection('Product').findOne({'_id': ObjectId(filename)}, {Image : 1}, (err, result) => {
       if (err) return console.log(err)
-      res.contentType('image/jpeg');
+      res.contentType('image/jpeg'); 
       //res.send(result.image.buffer);
     })
   })
@@ -144,12 +173,19 @@ router.get('/photo/:id', async(req, res) => {
 
 router.get('/product', async(req,res)=>
 {
+  if(!req.session.username)
+  {
+    return res.status(401).send();
+  }
+  else 
+  {
     let client= await MongoClient.connect(url);
     let dbo = client.db("ATNCompany");
     let results = await dbo.collection("Product").find({}).toArray();
     let count = await dbo.collection("Product").countDocuments();
+ 
     res.render('allProducts',{products:results, count:count});
-})
+  }})
 
 router.post('/product', upload.single('picture'), async(req,res)=>
 {
@@ -187,6 +223,12 @@ router.post('/product', upload.single('picture'), async(req,res)=>
 ///Edit product
 router.get('/product/edit', async(req,res)=>
 {
+  if(!req.session.username)
+  {
+    return res.status(401).send();
+  }
+  else 
+  {
     let id = req.query.id;
     var ObjectID = require('mongodb').ObjectID;
 
@@ -194,7 +236,7 @@ router.get('/product/edit', async(req,res)=>
     let dbo = client.db("ATNCompany");
     let result = await dbo.collection("Product").findOne({"_id" : ObjectID(id)});
     res.render('editProduct',{products:result});
-})
+}})
 
 router.post('/product/edit', upload.single('picture'), async(req,res)=>
 {
@@ -234,6 +276,29 @@ router.post('/product/edit', upload.single('picture'), async(req,res)=>
     let count = await dbo.collection("Product").count();
     res.render('allProducts',{products:results, count:count});
 })
+
+///Delete product
+
+router.get('/product/delete', async(req,res)=>
+{
+  if(!req.session.username)
+  {
+    return res.status(401).send();
+  }
+  else 
+  {
+    let id = req.query.id;
+    var ObjectID = require('mongodb').ObjectID;
+    let condition = {_id : ObjectID(id)};
+
+    let client= await MongoClient.connect(url);
+    let dbo = client.db("ATNCompany");
+    dbo.collection("Product").deleteOne(condition);
+
+    let results = await dbo.collection("Product").find({}).toArray();
+    res.render('allProducts',{products:results});
+}})
+
 
 
 module.exports = router;
