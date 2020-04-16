@@ -204,7 +204,6 @@ li a:hover, #home:hover {
 /*delete popup*/
 .pop-delete-background
 {
-  display: none;
   position: fixed;
   z-index: 12;
   top: 0;
@@ -216,6 +215,10 @@ li a:hover, #home:hover {
   background-color: rgb(0,0,0); 
   background-color: rgba(0,0,0,0.4);  
   backdrop-filter: blur(3px);
+  visibility: hidden;
+  opacity: 0;
+  -webkit-transition: opacity 600ms, visibility 600ms;
+  transition: opacity 600ms, visibility 600ms;
 }
 
 .pop-delete
@@ -317,15 +320,18 @@ b{
 
   #popup-mess-background
   {
-    display: none;
+
     position: fixed;
     margin-left: -8px;
     width: 100%;
     height:100%;
     background-color: rgb(0,0,0); 
     background-color: rgba(0,0,0,0.4);  
-    backdrop-filter: blur(3px);
-    transition: 1s;
+    backdrop-filter: blur(9px);
+    visibility: hidden;
+    opacity: 0;
+    -webkit-transition: opacity 600ms, visibility 600ms;
+    transition: opacity 600ms, visibility 600ms;
   }
   
   #popup-mess-container
@@ -335,8 +341,9 @@ b{
     position: absolute;
     width: 600px;
     height: 400px;
-    background: rgb(104, 104, 104);
+    background: rgb(255, 255, 255);
     border-radius: 6px;
+    
   }
 
   #popup-mess-content
@@ -351,6 +358,7 @@ b{
 
   #Xmess
 {
+  position: static;
   font-size: 29px;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   margin-left: 91%;
@@ -380,7 +388,7 @@ b{
   height: 120px;
   margin-top: 20px;
   border-radius: 8px;
-  border-top: 5px solid red;
+  border-top: 6px solid red;
 }
 
 
@@ -389,15 +397,17 @@ b{
 
 #popup-background
 {
-  display: none;
   position: fixed;
+  visibility: hidden;
+  opacity: 0;
   margin-left: -8px;
   width: 100%;
   height:100%;
   background-color: rgb(0,0,0); 
   background-color: rgba(0,0,0,0.4);  
   backdrop-filter: blur(3px);
-  transition: 1s;
+  -webkit-transition: opacity 600ms, visibility 600ms;
+  transition: opacity 600ms, visibility 600ms;
 }
 
 #popup-container
@@ -540,9 +550,9 @@ input[type="radio"]
 
 .ignoreicon
 {
-  position: static;
-  margin-left: 4px;
-  margin-top: 5px;
+  position: absolute;
+  margin-left: 29px;
+  margin-top: 8px;
   width: 25px;
   height: 25px;
 }

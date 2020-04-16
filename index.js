@@ -56,6 +56,7 @@ router.post('/homepage', async(req,res)=>{
                 }
             else
                 {
+                    req.session.username = username; 
                     res.render("employeepage");
                 }
         }

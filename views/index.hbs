@@ -67,13 +67,18 @@
     <label class="label" for="psw"><b>Your phone number: </b></label><BR><BR>
     <input style="margin-top: -10px;" class="forgot-input" type="text" placeholder="09xx" name="phone" required><BR><BR>
 
-    <button id="forgot-button" style="font-size: 17px; padding: 8px; box-shadow: none; border-radius: 70px; width: 150px; margin-left: 50px" type="submit" id="login">Confirm</button><BR><BR>
+    <button onclick="noti()" id="forgot-button" style="font-size: 17px; padding: 8px; box-shadow: none; border-radius: 70px; width: 150px; margin-left: 50px" type="submit" id="login">Confirm</button><BR><BR>
      
   </form>
 </div>
 </div>
 
 <script>
+
+function noti()
+{
+  alert("Sent!");
+}
 
 function openform() {
   document.getElementById("popup-background").style.display = "block";

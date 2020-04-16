@@ -63,8 +63,7 @@ router.post('/employee', async(req,res)=>
         client.close();
     })
 
-    let results = await dbo.collection("Account").find({}).toArray();
-    res.render('allAccounts',{accounts:results});
+    res.redirect('/homepage/employee');
 })
 
 //edit
@@ -103,8 +102,7 @@ router.post('/employee/edit', async(req,res)=>
     let dbo = client.db("ATNCompany");
     await dbo.collection("Account").updateOne(condition,newAccount);
 
-    let results = await dbo.collection("Account").find({}).toArray();
-    res.render('allAccounts',{accounts:results});
+    res.redirect('/homepage/employee');
 })
 
 ///. delete account
@@ -124,8 +122,7 @@ router.get('/employee/delete', async(req,res)=>
     let dbo = client.db("ATNCompany");
     dbo.collection("Account").deleteOne(condition);
 
-    let results = await dbo.collection("Account").find({}).toArray();
-    res.render('allAccounts',{accounts:results});
+    res.redirect('/homepage/employee');
 }})
 
 ////////Product
@@ -163,7 +160,7 @@ router.get('/photo/:id', async(req, res) => {
     dbo.collection('Product').findOne({'_id': ObjectId(filename)}, {Image : 1}, (err, result) => {
       if (err) return console.log(err)
       res.contentType('image/jpeg'); 
-      //res.send(result.image.buffer);
+      res.send(result.Image.image.buffer);
     })
   })
 
@@ -187,7 +184,7 @@ router.get('/product', async(req,res)=>
     res.render('allProducts',{products:results, count:count});
   }})
 
-router.post('/product', upload.single('picture'), async(req,res)=>
+router.post('/product/add', upload.single('picture'), async(req,res)=>
 {
     let name = req.body.name;
     let price = req.body.price;
@@ -208,16 +205,7 @@ router.post('/product', upload.single('picture'), async(req,res)=>
     let dbo = client.db("ATNCompany");
     dbo.collection("Product").insertOne(newProduct);
 
-    var filename = req.params.id;
-  
-    dbo.collection('Product').findOne({ '_id': ObjectId(filename) }, (err, result) => {
-      if (err) return console.log(err)
-      res.contentType('image/jpeg');
-      res.send(result.image);
-    })
-    let results = await dbo.collection("Product").find({}).toArray();
-    let count = await dbo.collection("Product").count();
-    res.render('allProducts',{products:results, count:count});
+    res.redirect('/homepage/product');
 })
 
 ///Edit product
@@ -264,17 +252,7 @@ router.post('/product/edit', upload.single('picture'), async(req,res)=>
     let dbo = client.db("ATNCompany");
     await dbo.collection("Product").updateOne(condition,newProduct);
 
-  
-    /* 
-    dbo.collection('Product').findOne({ '_id': ObjectId(filename) }, (err, result) => {
-      if (err) return console.log(err)
-      res.contentType('image/jpeg');
-      res.send(result.image.buffer);
-    })
-    */
-    let results = await dbo.collection("Product").find({}).toArray();
-    let count = await dbo.collection("Product").count();
-    res.render('allProducts',{products:results, count:count});
+    res.redirect('/homepage/product');
 })
 
 ///Delete product
@@ -296,7 +274,7 @@ router.get('/product/delete', async(req,res)=>
     dbo.collection("Product").deleteOne(condition);
 
     let results = await dbo.collection("Product").find({}).toArray();
-    res.render('allProducts',{products:results});
+    res.redirect('/homepage/product');
 }})
 
 

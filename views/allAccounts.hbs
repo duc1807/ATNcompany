@@ -50,7 +50,7 @@
             <div class="pop-delete" id='{{_id}}'>
                 <h1 style="font-size: 20px; margin-left:30px" class="forgot-form">Do you want to delete this account?</h1>
                 <p style="margin-left: 30px;">Account: {{Username}}</p>
-                <button style="margin-top: 10px; margin-left:50px" onclick="closedel('{{_id}}');" id="ignore"><img class="ignoreicon" src="/images/uncheck.png"></button>
+                <div style="margin-top: 10px; margin-left:50px" onclick="closedel('{{_id}}');" id="ignore"><img class="ignoreicon" src="/images/uncheck.png"></div>
                 <a href="/homepage/employee/delete?id={{_id}}"><button style="margin-top: 10px; margin-left:160px" id="check"><img class="checkicon" src="/images/check.png"></button></a>
             </div>
         </div>
@@ -120,7 +120,7 @@
             <label style="position: absolute; margin-top: -5px" class="label"><b>Permission </b></label><BR>
             <input style="margin-left: 20px;" type="radio" name="permission" value="Administrator" required>Administrator
             <input style="margin-left: 30px;" type="radio" name="permission" value="Staff">Staff<BR>
-            <button onclick="closeform(); reset()" id="ignore"><img class="ignoreicon" src="/images/uncheck.png"></button>
+            <div onclick="closeform(); reset()" id="ignore"><img class="ignoreicon" src="/images/uncheck.png"></div>
             <button type="submit" id="check"><img class="checkicon" src="/images/check.png"></button>
         
         </div>
@@ -134,22 +134,26 @@
 // Popup messages
 
 function openmess() {
-    document.getElementById('popup-mess-background').style.display = "block";
+    document.getElementById('popup-mess-background').style.visibility = "visible";
+    document.getElementById('popup-mess-background').style.opacity = 1;
 };
 
 function closemess() {
-    document.getElementById('popup-mess-background').style.display = "none";
+    document.getElementById('popup-mess-background').style.visibility = "hidden";
+    document.getElementById('popup-mess-background').style.opacity = 0;
 };
 
 
 //popup add
 
 function add() {
-    document.getElementById('popup-background').style.display = "block";
+    document.getElementById('popup-background').style.visibility = "visible";
+    document.getElementById('popup-background').style.opacity = 1;
 };
 
 function closeform() {
-    document.getElementById('popup-background').style.display = "none";
+        document.getElementById('popup-background').style.visibility = "hidden";
+    document.getElementById('popup-background').style.opacity = 0;
 };
 
 function reset()
@@ -163,12 +167,14 @@ function reset()
 <script>
 function confirmdel(id)
 {
-   document.getElementById(id).style.display= "block";
+   document.getElementById(id).style.visibility= "visible";
+   document.getElementById(id).style.opacity= 1;
    
 }
 function closedel(id)
 {
-    document.getElementById(id).style.display= "none";
+    document.getElementById(id).style.visibility= "hidden";
+    document.getElementById(id).style.opacity= 0;
 }
 </script>
 
