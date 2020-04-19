@@ -1,0 +1,11 @@
+﻿  pch.cpp
+  AptechStudent.cpp
+c:\users\admin\source\repos\c++\demoadapter\aptechstudent.h(15): error C2143: syntax error: missing ';' before '}'
+c:\users\admin\source\repos\c++\demoadapter\aptechstudent.cpp(19): error C2600: 'AptechStudent::~AptechStudent': cannot define a compiler-generated special member function (must be declared in the class first)
+  BridgeStudent.cpp
+c:\users\admin\source\repos\c++\demoadapter\aptechstudent.h(15): error C2143: syntax error: missing ';' before '}'
+c:\users\admin\source\repos\c++\demoadapter\bridgestudent.cpp(23): error C2143: syntax error: missing ';' before '}'
+  DemoAdapter.cpp
+c:\users\admin\source\repos\c++\demoadapter\aptechstudent.h(15): error C2143: syntax error: missing ';' before '}'
+  FGWStudent.cpp
+  Generating Code...
